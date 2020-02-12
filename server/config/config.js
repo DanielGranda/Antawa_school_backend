@@ -19,7 +19,7 @@ let urleDB;
 if (process.env.NODE_ENV === 'dev') {
     urleDB = 'mongodb://localhost/atw_adm';
 } else {
-    urleDB = process.env.MONGO_URI;
+    urleDB = 'mongodb://Daniel_Granda:3MDvXBYDCOA9m4xj@antawaschool-shard-00-00-1dxbm.mongodb.net:27017,antawaschool-shard-00-01-1dxbm.mongodb.net:27017,antawaschool-shard-00-02-1dxbm.mongodb.net:27017/atw_adm_nube?ssl=true&replicaSet=AntawaSchool-shard-0&authSource=admin';
 }
 
 
