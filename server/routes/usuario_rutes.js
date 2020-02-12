@@ -7,6 +7,12 @@ const Usuario = require('../models/usuario_model.js');
 const app = express();
 
 app.get('/usuario', verificaToken, (req, res) => {
+    /* return res.json({
+        usuario: req.usuario,
+        usuario: req.usuario.nombre,
+        usuario: req.usuario.email,
+        usuario: req.usuario.role,
+    }) */
     let desde = req.query.desde || 0;
     desde = Number(desde);
 
@@ -37,7 +43,7 @@ app.get('/usuario', verificaToken, (req, res) => {
 })
 
 //POST PARA CREAR REGISTROS
-app.post('/usuario', function(req, res) {
+app.post('/usuario', [verificaToken, ], function(req, res) {
     let body = req.body;
 
     let usuario = new Usuario({
@@ -65,7 +71,7 @@ app.post('/usuario', function(req, res) {
     });
 })
 
-app.put('/usuario/:id', function(req, res) {
+app.put('/usuario/:id', [verificaToken, verificaAdmin_Role], function(req, res) {
     let id = req.params.id;
     let body = _.pick(req.body, ['nombre', 'email', 'img', 'role', 'estado']);
 
@@ -85,7 +91,7 @@ app.put('/usuario/:id', function(req, res) {
     })
 })
 
-app.delete('/usuario/:id', function(req, res) {
+app.delete('/usuario/:id', [verificaToken, verificaAdmin_Role], function(req, res) {
 
     let id = req.params.id;
     //OPCION BORRADO DEFINITIVO  

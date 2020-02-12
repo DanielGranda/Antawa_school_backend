@@ -6,7 +6,7 @@ let Schema = mongoose.Schema;
 
 // Roles admin
 let rolesValidos = {
-    values: ['1717084592', '1717084593'],
+    values: ['1717084592', '1717084593', '1717084594'],
     message: '{VALUE} no es un rol válido'
 };
 
@@ -31,7 +31,7 @@ let usuarioSchema = new Schema({
     },
     role: {
         type: String,
-        default: 'USER_ROLE',
+        default: '1717084592',
         enum: rolesValidos
 
     },
