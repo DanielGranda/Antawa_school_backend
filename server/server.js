@@ -19,7 +19,7 @@ mongoose.connect(process.env.URLDB, {
     useCreateIndex: true
 }, (err, res) => {
     if (err) throw err;
-    console.log('Base de datos online');
+    console.log('Base de datos ACTIVA');
 });
 
 app.listen(process.env.PORT, () => {
